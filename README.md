@@ -520,7 +520,13 @@ yarn add validator
 Implement server-side validation:
 
 ```diff
-{/* functions/send.js *}
+/* functions/send.js */
+const qs = require('querystring');
++const validator = require('validator');
+const nodemailer = require('nodemailer');
+
+/* ... */
+
     // We can get the POST body in the event argument passed to this function
     // and parse it with the querystring module to get our form field values
     const { name, email, subject, message } = qs.parse(event.body);
